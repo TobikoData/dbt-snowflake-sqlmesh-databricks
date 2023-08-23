@@ -5,42 +5,23 @@ jaffle_shop:
     dev:
       type: duckdb
       schema: dev_sung
-      path: 'jaffle_shop.duckdb'
+      path: 'md:jaffle_shop'
       threads: 16
+      extensions: 
+        - httpfs
+      settings:
+        s3_region: us-west-1
+        s3_access_key_id: "{{ env_var('S3_ACCESS_KEY_ID') }}"
+        s3_secret_access_key: "{{ env_var('S3_SECRET_ACCESS_KEY') }}"
 
     prod:
       type: duckdb
       schema: prod_sung
       path: 'md:jaffle_shop'
       threads: 16
-
-    insane_o_style:
-      type: duckdb
-      schema: insane_o_style
-      path: 'md:jaffle_shop'
-      threads: 16
-      extensions:
+      extensions: 
         - httpfs
       settings:
         s3_region: us-west-1
         s3_access_key_id: "{{ env_var('S3_ACCESS_KEY_ID') }}"
         s3_secret_access_key: "{{ env_var('S3_SECRET_ACCESS_KEY') }}"
-      plugins:
-        - module: postgres
-          config:
-            dsn: "dbname={{ env_var('DBNAME') }} user={{ env_var('ROLE') }} host={{ env_var('HOST') }} password={{ env_var('PASSWORD') }} port=5432"
-            source_schema: dbt_sung_dev
-            sink_schema: plugin_postgres
-            overwrite: true
-
-    neon:
-      type: postgres
-      host: "{{ env_var('HOST') }}"
-      user: "{{ env_var('ROLE') }}"
-      password: "{{ env_var('PASSWORD') }}"
-      port: 5432 # The default PostgreSQL port
-      dbname: "{{ env_var('DBNAME') }}"
-      schema: dbt_sung_dev # Default schema for PostgreSQL
-      threads: 24 # Choose the appropriate number
-      connect_timeout: 10 # default 10 seconds
-      sslmode: require
