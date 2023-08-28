@@ -17,7 +17,7 @@ export S3_ACCESS_KEY_ID=<your access key id> # haoiwehfpoiahpwohf
 export S3_SECRET_ACCESS_KEY=<your secret access key> # jiaowhefa998333
 ```
 
-Update your `profiles.yml` file:
+Update your `profiles.yml` file for customer schemas and path names for motherduck. These defaults can run as is, but you can change them to whatever you want.
 
 ```yaml
 jaffle_shop:
