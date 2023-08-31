@@ -13,6 +13,7 @@ Set your environment variables:
 ```shell
 # all examples are fake
 export motherduck_token=<your motherduck token> # aouiweh98229g193g1rb9u1
+export S3_REGION=<your region> # us-west-1
 export S3_ACCESS_KEY_ID=<your access key id> # haoiwehfpoiahpwohf
 export S3_SECRET_ACCESS_KEY=<your secret access key> # jiaowhefa998333
 ```
@@ -32,7 +33,19 @@ jaffle_shop:
       extensions: 
         - httpfs
       settings:
-        s3_region: us-west-1
+        s3_region: "{{ env_var('S3_REGION', 'us-west-1') }}"
+        s3_access_key_id: "{{ env_var('S3_ACCESS_KEY_ID') }}"
+        s3_secret_access_key: "{{ env_var('S3_SECRET_ACCESS_KEY') }}"
+
+    dev_public_s3:
+      type: duckdb
+      schema: dev_sung
+      path: 'md:jaffle_shop'
+      threads: 16
+      extensions: 
+        - httpfs
+      settings:
+        s3_region: "{{ env_var('S3_REGION', 'us-east-1') }}" # default region to make hello_public_s3.sql work correctly!
         s3_access_key_id: "{{ env_var('S3_ACCESS_KEY_ID') }}"
         s3_secret_access_key: "{{ env_var('S3_SECRET_ACCESS_KEY') }}"
 
