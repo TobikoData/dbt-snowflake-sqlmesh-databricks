@@ -9,3 +9,5 @@ venv/
 env/
 **/*.duckdb
 **/*.duckdb.wal
+.cache/
+__pycache__/
