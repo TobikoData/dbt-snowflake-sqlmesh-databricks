@@ -14,20 +14,23 @@ macro-paths:
   - macros
 target-path: target
 clean-targets:
-  - target
-  - dbt_modules
-  - logs
-require-dbt-version:
-  - '>=1.0.0'
-  - <2.0.0
-seeds:
-  fast: true
+  - "target"
+  - "dbt_modules"
+  - "logs"
+
+require-dbt-version: [">=1.0.0", "<2.0.0"]
+
+seeds: 
+  +docs:
+    node_color: '#cd7f32'
+
 models:
+  +start: Jan 1 2000
   jaffle_shop:
     materialized: table
     staging:
       materialized: view
-vars:
-  data_diff:
-    prod_database: md:jaffle_shop
-    prod_schema: prod_sung
+      +docs:
+        node_color: 'silver'
+    +docs:
+      node_color: 'gold'

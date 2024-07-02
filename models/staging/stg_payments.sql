@@ -16,7 +16,8 @@ renamed as (
         payment_method,
 
         -- `amount` is currently stored in cents, so we convert it to dollars
-        amount / 100 as amount
+        amount / 100 as amount,
+        'new_column' as new_column
 
     from source
 

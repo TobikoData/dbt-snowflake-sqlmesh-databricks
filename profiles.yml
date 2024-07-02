@@ -1,46 +1,25 @@
 jaffle_shop:
 
-  target: dev
+  target: databricks
   outputs:
-    dev:
-      type: duckdb
-      schema: dev_sung
-      path: 'jaffle_shop.duckdb'
-      threads: 16
+    snowflake:
+      type: snowflake
+      account: WXB73651
+      user: "{{ env_var('SNOWFLAKE_USER') }}"
+      password: "{{ env_var('SNOWFLAKE_PASSWORD') }}"
 
-    prod:
-      type: duckdb
-      schema: prod_sung
-      path: 'md:jaffle_shop'
+      role: accountadmin
+      database: DBT_TO_SQLMESH_DEMO
+      warehouse: COMPUTE_WH
+      schema: old
       threads: 16
+      client_session_keep_alive: True
 
-    insane_o_style:
-      type: duckdb
-      schema: insane_o_style
-      path: 'md:jaffle_shop'
-      threads: 16
-      extensions:
-        - httpfs
-      settings:
-        s3_region: us-west-1
-        s3_access_key_id: "{{ env_var('S3_ACCESS_KEY_ID') }}"
-        s3_secret_access_key: "{{ env_var('S3_SECRET_ACCESS_KEY') }}"
-      plugins:
-        - module: postgres
-          config:
-            dsn: "dbname={{ env_var('DBNAME') }} user={{ env_var('ROLE') }} host={{ env_var('HOST') }} password={{ env_var('PASSWORD') }} port=5432"
-            source_schema: dbt_sung_dev
-            sink_schema: plugin_postgres
-            overwrite: true
-
-    neon:
-      type: postgres
-      host: "{{ env_var('HOST') }}"
-      user: "{{ env_var('ROLE') }}"
-      password: "{{ env_var('PASSWORD') }}"
-      port: 5432 # The default PostgreSQL port
-      dbname: "{{ env_var('DBNAME') }}"
-      schema: dbt_sung_dev # Default schema for PostgreSQL
-      threads: 24 # Choose the appropriate number
-      connect_timeout: 10 # default 10 seconds
-      sslmode: require
+    databricks:
+      type: databricks
+      catalog: public_demo #optional catalog name if you are using Unity Catalog]
+      schema: new # Required
+      host: dbc-b9f590c4-0a08.cloud.databricks.com # Required
+      http_path: /sql/protocolv1/o/5705746990502068/0603-211256-ns7ii2e2 # Required
+      token: "{{ env_var('DATABRICKS_ACCESS_TOKEN') }}" # Required Personal Access Token (PAT) if using token-based authentication
+      threads: 16  # Optional, default 1
