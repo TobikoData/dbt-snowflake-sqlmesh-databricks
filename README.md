@@ -29,3 +29,5 @@ TODO Instructions:
 - sqlmesh plan after
 - sqlmesh run from there
 - sqlmesh audit to see how testing feels
+- add link to official docs for this quickstart
+- you get column level lineage for free, no paywalls 
