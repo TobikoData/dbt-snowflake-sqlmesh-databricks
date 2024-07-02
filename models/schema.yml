@@ -10,6 +10,8 @@ models:
         tests:
           - unique
           - not_null
+        meta:
+          primary-key: true
 
       - name: first_name
         description: Customer's first name. PII.

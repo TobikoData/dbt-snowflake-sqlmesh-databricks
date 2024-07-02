@@ -1,0 +1,1 @@
+select * from {{ ref('hello_s3') }} limit 5

@@ -1,0 +1,8 @@
+version: 2
+
+sources:
+  - name: plugin_postgres
+    config:
+      enabled: true
+    tables:
+      - name: customers

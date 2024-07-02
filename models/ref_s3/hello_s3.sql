@@ -1,0 +1,1 @@
+SELECT * FROM 's3://duckdb-demo/raw_customers.csv'
