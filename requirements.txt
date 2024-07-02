@@ -1,5 +1,3 @@
-
-# sqlmesh[web,postgres,github,databricks,snowflake]==0.108.0
 dbt-snowflake==1.8.3
 dbt-databricks==1.8.3
-sqlmesh[snowflake,databricks]
+sqlmesh[snowflake,databricks,postgres,web]==0.108.0
