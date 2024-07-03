@@ -84,10 +84,11 @@ sqlmesh plan dev --include-unmodified
 ```
 
 ```bash
-# see column level lineage for free, no paywalls
+# see column level lineage for free, no paywalls, example experience below
 sqlmesh ui
 
 # open this link in your browser: http://127.0.0.1:8000
 ```
+![sqlmesh_ui](./images/sqlmesh_ui.png)
 
 Have a wonderful new life ahead of you. 
