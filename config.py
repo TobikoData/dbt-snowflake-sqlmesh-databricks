@@ -4,6 +4,19 @@ import os
 from sqlmesh.dbt.loader import sqlmesh_config
 from sqlmesh.core.config import PostgresConnectionConfig
 
+# databricks
+# config = sqlmesh_config(
+#     project_root=Path(__file__).parent,
+#     state_connection=PostgresConnectionConfig(
+#         host=os.getenv("SQLMESH_STATE_HOST"),
+#         port=5432,
+#         user=os.getenv("SQLMESH_STATE_USERNAME"),
+#         password=os.getenv("SQLMESH_STATE_PASSWORD"),
+#         database="sqlmesh_state_snowbricks_demo",
+#     ),
+# )
+
+# bigquery
 config = sqlmesh_config(
     project_root=Path(__file__).parent,
     state_connection=PostgresConnectionConfig(
@@ -11,7 +24,7 @@ config = sqlmesh_config(
         port=5432,
         user=os.getenv("SQLMESH_STATE_USERNAME"),
         password=os.getenv("SQLMESH_STATE_PASSWORD"),
-        database="sqlmesh_state_snowbricks_demo",
+        database="sqlmesh_state_migrate_bigquery_demo",
     ),
 )
 

@@ -1,3 +1,4 @@
 dbt-snowflake==1.8.3
 dbt-databricks==1.8.3
-sqlmesh[snowflake,databricks,postgres,web]==0.109.0
+dbt-bigquery==1.8.2
+sqlmesh[snowflake,databricks,postgres,web,bigquery]==0.109.0

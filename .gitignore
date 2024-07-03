@@ -11,3 +11,4 @@ env/
 **/*.duckdb.wal
 .cache/
 __pycache__/
+service-account.json

@@ -1,6 +1,6 @@
 jaffle_shop:
 
-  target: databricks
+  target: bigquery
   outputs:
     snowflake:
       type: snowflake
@@ -23,3 +23,11 @@ jaffle_shop:
       http_path: /sql/protocolv1/o/5705746990502068/0603-211256-ns7ii2e2 # Required
       token: "{{ env_var('DATABRICKS_ACCESS_TOKEN') }}" # Required Personal Access Token (PAT) if using token-based authentication
       threads: 16  # Optional, default 1
+
+    bigquery:
+      type: bigquery
+      method: service-account
+      project: sqlmesh-public-demo
+      dataset: dbt_to_sqlmesh_migrate_demo
+      threads: 16 # Must be a value of 1 or greater
+      keyfile: service-account.json
