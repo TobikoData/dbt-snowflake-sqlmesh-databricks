@@ -1,6 +1,6 @@
 # dbt Snowflake -> SQLMesh Databricks
 
-Migrations are hard. I know it very deeply. I've had my fair share of data warehouse migrations during my consulting days. What's really wonderful is that our team at Tobiko believe they shouldn't be so miserable. 
+Migrations are hard. I know it very deeply. I've had my fair share of data warehouse migrations during my consulting days. What's really wonderful is that our team at Tobiko believes they shouldn't be so miserable. 
 
 This is a demo project to show you how easy it is to migrate to SQLMesh AND Databricks in 5 minutes (literally, including your jinja macros). This is not meant to be exhaustive. This is a starting point to show you what's possible. And that hopefully for all of us, migrations don't have to be so miserable anymore. 
 
