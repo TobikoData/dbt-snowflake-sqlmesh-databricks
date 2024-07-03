@@ -1,6 +1,6 @@
 jaffle_shop:
 
-  target: bigquery
+  target: databricks # TODO: change this target and it just works!
   outputs:
     snowflake:
       type: snowflake
@@ -17,7 +17,7 @@ jaffle_shop:
 
     databricks:
       type: databricks
-      catalog: public_demo #optional catalog name if you are using Unity Catalog]
+      catalog: migrate_demo #optional catalog name if you are using Unity Catalog]
       schema: new # Required
       host: dbc-b9f590c4-0a08.cloud.databricks.com # Required
       http_path: /sql/protocolv1/o/5705746990502068/0603-211256-ns7ii2e2 # Required
