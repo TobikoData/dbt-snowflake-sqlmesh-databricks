@@ -1,9 +1,19 @@
 # dbt Snowflake -> SQLMesh Databricks
 
-Migrations are hard. I know it very deeply. I've had my fair share of data warehouse migrations during my consulting days. What's really wonderful is that we believe they shouldn't be so miserable. 
+Migrations are hard. I know it very deeply. I've had my fair share of data warehouse migrations during my consulting days. What's really wonderful is that our team at Tobiko believe they shouldn't be so miserable. 
 
-This is a demo project to show you how easy it is to migrate to SQLMesh AND a new data platform in 5 minutes (literally). This is not meant to be exhaustive. This is a starting point to show you what's possible. And that hopefully for all of us, migrations don't have to be so miserable anymore. 
+This is a demo project to show you how easy it is to migrate to SQLMesh AND Databricks in 5 minutes (literally, including your jinja macros). This is not meant to be exhaustive. This is a starting point to show you what's possible. And that hopefully for all of us, migrations don't have to be so miserable anymore. 
 
+Snowflake (Left) -> Databricks (Right)
+
+See a full demo video (TODO)
+
+<p float="left">
+  <img src="./images/snowflake.png" width="45%" />
+  <img src="./images/databricks.png" width="45%" />
+</p>
+
+[LEARN MORE in our official docs for other dbt projects you want to migrate.](https://sqlmesh.readthedocs.io/en/stable/integrations/dbt/)
 
 ## Setup
 
@@ -15,16 +25,22 @@ pip install -r requirements.txt
 source venv/bin/activate
 ```
 
-Update your `dbt_project.yml` for a SQLMesh project start date
+Note: Assumed you have access to Snowflake and Databricks accounts to run this demo.
 
-```yaml
-models:
-  +start: Jan 1 2000
+Update your `profiles.yml` for the relevant credentials. Feel free to reuse the environment variable defaults or your own configs as a starting point.
+
+```bash
+# for snowflake
+export SNOWFLAKE_USER=<your-snowflake-user-name>
+export SNOWFLAKE_PASSWORD=<your-snowflake-password>
+
+# for databricks
+export DATABRICKS_ACCESS_TOKEN=<your-databricks-access-token>
+export DATABRICKS_SERVER_HOSTNAME=<your-databricks-server-hostname>
+export DATABRICKS_HTTP_PATH=<your-databricks-http-path>
 ```
 
-Update your `profiles.yml` for the relevant credentials. Feel free to reuse the environment variable defaults or your own conventions.
-
-**Setup your sqlmesh state backend for a realistic SQLMesh setup:**
+Setup your sqlmesh state backend for a realistic SQLMesh setup:
 
 1. Sign up for a free Neon account: [here](https://neon.tech/)
 2. Create a new database named: `sqlmesh_state_snowbricks_demo`
@@ -63,11 +79,14 @@ sqlmesh run
 
 ```bash
 # if you want to start developing right away, we'll create dev environments for free and very fast
-sqlmesh plan dev_migrate --include-unmodified
+sqlmesh plan dev --include-unmodified
 ```
 
+```bash
+# see column level lineage for free, no paywalls
+sqlmesh ui
 
-TODO Instructions:
+# open this link in your browser: http://127.0.0.1:8000
+```
 
-- add link to official docs for this quickstart
-- you get column level lineage for free, no paywalls 
+Have a wonderful new life ahead of you. 

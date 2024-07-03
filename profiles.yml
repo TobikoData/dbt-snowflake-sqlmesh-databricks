@@ -9,20 +9,20 @@ jaffle_shop:
       password: "{{ env_var('SNOWFLAKE_PASSWORD') }}"
 
       role: accountadmin # highly recommend creating a least privileges role
-      database: migrate_demo
+      database: migrate_demo # replace with an existing database or use your own profiles.yml config
       warehouse: COMPUTE_WH
       schema: new_life_ahead # name this whatever you want :)
       threads: 16
       client_session_keep_alive: True
 
-    # databricks:
-    #   type: databricks
-    #   catalog: migrate_demo #optional catalog name if you are using Unity Catalog]
-    #   schema: new # Required
-    #   host: dbc-b9f590c4-0a08.cloud.databricks.com # Required
-    #   http_path: /sql/protocolv1/o/5705746990502068/0603-211256-ns7ii2e2 # Required
-    #   token: "{{ env_var('DATABRICKS_ACCESS_TOKEN') }}" # Required Personal Access Token (PAT) if using token-based authentication
-    #   threads: 16  # Optional, default 1
+    databricks:
+      type: databricks
+      catalog: migrate_demo #optional catalog name if you are using Unity Catalog]
+      schema: new # Required
+      host: "{{ env_var('DATABRICKS_SERVER_HOSTNAME') }}" # Required
+      http_path: "{{ env_var('DATABRICKS_HTTP_PATH') }}"# Required
+      token: "{{ env_var('DATABRICKS_ACCESS_TOKEN') }}" # Required Personal Access Token (PAT) if using token-based authentication
+      threads: 16  # Optional, default 1
 
     bigquery:
       type: bigquery

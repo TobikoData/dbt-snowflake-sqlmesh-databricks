@@ -16,8 +16,8 @@ config = sqlmesh_config(
     gateways={
         "": GatewayConfig(
             connection=DatabricksConnectionConfig(
-                server_hostname="dbc-b9f590c4-0a08.cloud.databricks.com",
-                http_path="/sql/protocolv1/o/5705746990502068/0603-211256-ns7ii2e2",
+                server_hostname=os.getenv("DATABRICKS_SERVER_HOSTNAME"),
+                http_path=os.getenv("DATABRICKS_HTTP_PATH"),
                 access_token=os.getenv("DATABRICKS_ACCESS_TOKEN"),
                 catalog="migrate_demo",
             ),
