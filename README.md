@@ -41,6 +41,7 @@ export DATABRICKS_HTTP_PATH=<your-databricks-http-path>
 ```
 
 Setup your sqlmesh state backend for a realistic SQLMesh setup:
+> It'll make it run faster too!
 
 1. Sign up for a free Neon account: [here](https://neon.tech/)
 2. Create a new database named: `sqlmesh_state_snowbricks_demo`
