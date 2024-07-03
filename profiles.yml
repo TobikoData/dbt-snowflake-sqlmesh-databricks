@@ -11,7 +11,7 @@ jaffle_shop:
       role: accountadmin # highly recommend creating a least privileges role
       database: migrate_demo
       warehouse: COMPUTE_WH
-      schema: new_future
+      schema: new_life_ahead # name this whatever you want :)
       threads: 16
       client_session_keep_alive: True
 
