@@ -4,9 +4,9 @@ Migrations are hard. I know it very deeply. I've had my fair share of data wareh
 
 This is a demo project to show you how easy it is to migrate to SQLMesh AND Databricks in 5 minutes (literally, including your jinja macros). This is not meant to be exhaustive. This is a starting point to show you what's possible. And that hopefully for all of us, migrations don't have to be so miserable anymore. 
 
-Snowflake (Left) -> Databricks (Right)
-
 See a full demo video (TODO)
+
+Snowflake (Left) -> Databricks (Right)
 
 <p float="left">
   <img src="./images/snowflake.png" width="45%" />
