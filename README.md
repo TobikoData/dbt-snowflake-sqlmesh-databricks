@@ -47,22 +47,6 @@ export DATABRICKS_SERVER_HOSTNAME=<your-databricks-server-hostname>
 export DATABRICKS_HTTP_PATH=<your-databricks-http-path>
 ```
 
-Setup your sqlmesh state backend for a realistic SQLMesh setup:
-> It'll make it run faster too!
-
-1. Sign up for a free Neon account: [here](https://neon.tech/)
-2. Create a new database named: `sqlmesh_state_snowbricks_demo`
-![new_database](./images/new_database.png)
-3. Export your environment variables based on the newly created database connection string
-![new_database](./images/connection_string.png)
-
-```bash
-# examples based on the image above
-export SQLMESH_STATE_HOST=ep-purple-heart-a6mqlep8.us-west-2.aws.neon.tech
-export SQLMESH_STATE_USERNAME=<your-neon-username>
-export SQLMESH_STATE_PASSWORD=<your-password-blurred-in-the-image>
-```
-
 ## Quickstart
 
 ```bash
@@ -92,6 +76,7 @@ sqlmesh plan dev --include-unmodified
 
 ```bash
 # see column level lineage for free, no paywalls, example experience below
+# note: make sure to close this ui terminal process when applying sqlmesh CLI commands directly
 sqlmesh ui
 
 # open this link in your browser: http://127.0.0.1:8000

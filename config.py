@@ -5,8 +5,8 @@ from sqlmesh.dbt.loader import sqlmesh_config
 from sqlmesh.core.config import (
     GatewayConfig,
     ModelDefaultsConfig,
-    PostgresConnectionConfig,
     DatabricksConnectionConfig,
+    DuckDBConnectionConfig
 )
 
 # databricks
@@ -21,12 +21,8 @@ config = sqlmesh_config(
                 access_token=os.getenv("DATABRICKS_ACCESS_TOKEN"),
                 catalog="migrate_demo",
             ),
-            state_connection=PostgresConnectionConfig(
-                host=os.getenv("SQLMESH_STATE_HOST"),
-                port=5432,
-                user=os.getenv("SQLMESH_STATE_USERNAME"),
-                password=os.getenv("SQLMESH_STATE_PASSWORD"),
-                database="sqlmesh_state_snowbricks_demo",
+            state_connection=DuckDBConnectionConfig( # TODO: in a production setting, you'll use Tobiko Cloud or postgres
+                database="sqlmesh_state_snowbricks_demo.duckdb",
             ),
         )
     },
