@@ -35,7 +35,7 @@ final as (
         orders.order_id,
         orders.customer_id,
         orders.order_date,
-        orders.status,
+        orders.status::varchar as status, -- Will transpile to STRING cast in Databricks
 
         {% for payment_method in payment_methods -%}
 
@@ -43,7 +43,7 @@ final as (
 
         {% endfor -%}
 
-        order_payments.total_amount as amount
+        NVL(order_payments.total_amount,order_payments.gift_card_amount) as amount -- Will transpile to COALESCE in Databricks
 
     from orders
 
