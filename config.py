@@ -12,7 +12,6 @@ from sqlmesh.core.config import (
 # databricks
 config = sqlmesh_config(
     project_root=Path(__file__).parent,
-    model_defaults=ModelDefaultsConfig(dialect='databricks'), # renders spark sql
     gateways={
         "": GatewayConfig(
             connection=DatabricksConnectionConfig(
