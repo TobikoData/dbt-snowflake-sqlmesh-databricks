@@ -4,12 +4,12 @@ jaffle_shop:
   outputs:
     snowflake:
       type: snowflake
-      account: WXB73651 # TODO: replace with your account
+      account: hib20841 # TODO: replace with your account, https://app.snowflake.com/hnhfbin/hib10055/#/data/databases
       user: "{{ env_var('SNOWFLAKE_USER') }}"
       password: "{{ env_var('SNOWFLAKE_PASSWORD') }}"
 
       role: accountadmin # highly recommend creating a least privileges role
-      database: migrate_demo # replace with an existing database or use your own profiles.yml config
+      database: migrate_demo_sqlmesh # replace with an existing database or use your own profiles.yml config
       warehouse: COMPUTE_WH # TODO: replace with your warehouse
       schema: new_life_ahead # TODO: name this whatever you want :)
       threads: 16
