@@ -1,5 +1,6 @@
 jaffle_shop:
   # sqlmesh will reuse the database and schema config for databricks
+  # note: this will be faster if you use a dedicated state database within Tobiko Cloud
   target: snowflake
   outputs:
     snowflake:
@@ -9,9 +10,9 @@ jaffle_shop:
       password: "{{ env_var('SNOWFLAKE_PASSWORD') }}"
 
       role: accountadmin # highly recommend creating a least privileges role
-      database: migrate_demo_sqlmesh # replace with an existing database or use your own profiles.yml config
+      database: migrate_demo # replace with an existing database or use your own profiles.yml config, migrate_demo_sqlmesh
       warehouse: COMPUTE_WH # TODO: replace with your warehouse
-      schema: new_life_ahead # TODO: name this whatever you want :)
+      schema: new_life_ahead # TODO: name this whatever you want :), new_life_ahead_v2
       threads: 16
       client_session_keep_alive: True
 
